@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fuego_turnbasedgame1.Monsters.Monster_Slime;
@@ -16,7 +17,8 @@ public class gameScreen extends AppCompatActivity implements View.OnClickListene
 
     TextView txtHeroName, txtMonsName, txtHeroHP, txtMonsHP, txtHeroDmg, txtMonsDmg, txtLog, txtTurn, txtSkill2cd;
     Button btnNextTurn;
-    ImageButton btnSkill1, btnSkill2, btnSkill3;
+    ImageButton btnSkill1, btnSkill2;
+    ImageView monImg;
 
     battle battle = new battle(this);
     MonsterStatus mon = new MonsterStatus();
@@ -57,15 +59,16 @@ public class gameScreen extends AppCompatActivity implements View.OnClickListene
         txtTurn = findViewById(R.id.turnNmbr);
         txtLog = findViewById(R.id.combatLog);
         txtSkill2cd = findViewById(R.id.s2cooldowncounter);
+        monImg = findViewById(R.id.monsterimg);
 
         //XML ids for buttons
         btnNextTurn = findViewById(R.id.nextTurnBtn);
         btnSkill1 = findViewById(R.id.skill1);
         btnSkill2 = findViewById(R.id.skill2);
-        btnSkill3 = findViewById(R.id.skill3);
 
         //Default Setters
         mon = new Monster_Slime();
+        monImg.setImageResource(R.drawable.monster_slime);
         txtHeroName.setText(heroName);
         txtHeroHP.setText(String.valueOf(heroHP));
         txtTurn.setText("Turn " + String.valueOf(battle.getTurnNumber()));
@@ -77,7 +80,6 @@ public class gameScreen extends AppCompatActivity implements View.OnClickListene
         txtLog.setText("Hero's turn!");
         btnSkill1.setEnabled(true);
         btnSkill2.setEnabled(true);
-        btnSkill3.setEnabled(true);
 
         //OnClickListeners for the skill buttons
         btnSkill1.setOnClickListener(this);

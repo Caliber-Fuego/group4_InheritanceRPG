@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="HP"
-        android:textColor="#E4DCDC"
+        android:textColor="#FF8181"
         app:layout_constraintEnd_toEndOf="@+id/txtHeroName"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txtHeroName"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="HP"
-        android:textColor="#E4DCDC"
+        android:textColor="#FF8181"
         app:layout_constraintEnd_toEndOf="@+id/txtMonsName"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txtMonsName"
@@ -83,8 +83,8 @@
 
     <TextView
         android:id="@+id/combatLog"
-        android:layout_width="398dp"
-        android:layout_height="151dp"
+        android:layout_width="380dp"
+        android:layout_height="148dp"
         android:text="TextView"
         android:textColor="#E4DCDC"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -111,35 +111,28 @@
         android:id="@+id/skill1"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:background="#0000"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintHorizontal_bias="0.033"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:layout_constraintVertical_bias="0.989"
+        app:srcCompat="@drawable/btn_attack" />
 
     <ImageButton
         android:id="@+id/skill2"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
+        android:background="#0000"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/skill1"
         app:layout_constraintStart_toEndOf="@+id/skill1"
         app:layout_constraintTop_toTopOf="@+id/skill1"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_launcher_background" />
-
-    <ImageButton
-        android:id="@+id/skill3"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="96dp"
-        app:layout_constraintBottom_toBottomOf="@+id/skill1"
-        app:layout_constraintStart_toEndOf="@+id/skill1"
-        app:layout_constraintTop_toTopOf="@+id/skill1"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/btn_defend" />
 
     <Button
         android:id="@+id/nextTurnBtn"
@@ -159,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
-        android:textColor="#0E4AFF"
+        android:textColor="#FF0E0E"
         android:textSize="34sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/skill2"
@@ -169,4 +162,29 @@
         app:layout_constraintTop_toTopOf="@+id/skill2"
         app:layout_constraintVertical_bias="0.0"
         tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/heroimg"
+        android:layout_width="192dp"
+        android:layout_height="195dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.483"
+        app:srcCompat="@drawable/eiyuu" />
+
+    <ImageView
+        android:id="@+id/monsterimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.119"
+        app:srcCompat="@drawable/monster_slime" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
