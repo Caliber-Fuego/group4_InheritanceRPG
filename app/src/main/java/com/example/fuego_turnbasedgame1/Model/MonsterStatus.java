@@ -1,4 +1,4 @@
-package com.example.fuego_turnbasedgame1;
+package com.example.fuego_turnbasedgame1.Model;
 
 public class MonsterStatus {
     protected static String monsterName;
@@ -23,7 +23,5 @@ public class MonsterStatus {
     public static void setMonMinDmg(int monMinDmg) {MonsterStatus.monMinDmg = monMinDmg;}
     public static void setMonMaxDmg(int monMaxDmg) {MonsterStatus.monMaxDmg = monMaxDmg;}
     public static void setMonId(int monId) {MonsterStatus.monId = monId;}
-
-
 
 }

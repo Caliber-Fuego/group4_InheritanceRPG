@@ -9,40 +9,27 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.fuego_turnbasedgame1.Monsters.Monster_Slime;
-
-import java.util.Random;
+import com.example.fuego_turnbasedgame1.Controller.battle;
+import com.example.fuego_turnbasedgame1.Model.HeroStatus;
+import com.example.fuego_turnbasedgame1.Controller.battleBehavior;
+import com.example.fuego_turnbasedgame1.Model.Magic;
+import com.example.fuego_turnbasedgame1.Model.Magics.Magic_SlimeBall;
+import com.example.fuego_turnbasedgame1.Model.MonsterStatus;
+import com.example.fuego_turnbasedgame1.Model.Monsters.Monster_Slime;
 
 public class gameScreen extends AppCompatActivity implements View.OnClickListener {
 
-    TextView txtHeroName, txtMonsName, txtHeroHP, txtMonsHP, txtHeroDmg, txtMonsDmg, txtLog, txtTurn, txtSkill2cd;
-    Button btnNextTurn;
-    ImageButton btnSkill1, btnSkill2;
-    ImageView monImg;
+    public TextView txtHeroName, txtMonsName, txtHeroHP, txtMonsHP, txtHeroDmg, txtMonsDmg, txtLog, txtTurn, txtSkill2cd;
+    public Button btnNextTurn;
+    public ImageButton btnSkill1, btnSkill2;
+    public ImageView monImg;
 
-    battle battle = new battle(this);
+    com.example.fuego_turnbasedgame1.Controller.battle battle = new battle(this);
+    HeroStatus hero = new HeroStatus();
     MonsterStatus mon = new MonsterStatus();
+    Magic magic = new Magic();
+    battleBehavior battleBehavior = new battleBehavior(this);
 
-
-    //Hero Stats
-    String heroName = "Eiyuu";
-    int heroHP = 500;
-    int heroMaxHP = 500;
-    int heroMP = 1000;
-    int heroMinDmg = 100;
-    int heroMaxDmg = 150;
-
-    //Getters
-    public int getHeroHP() {return heroHP;}
-    public int getHeroMaxHP() {return heroMaxHP;}
-    public int getHeroMinDmg() {return heroMinDmg;}
-    public int getHeroMaxDmg() {return heroMaxDmg;}
-
-    //Setters
-    public void setHeroMinDmg(int heroMinDmg) {this.heroMinDmg = heroMinDmg;}
-    public void setHeroMaxDmg(int heroMaxDmg) { this.heroMaxDmg = heroMaxDmg;}
-    public void setHeroHP(int heroHP) {this.heroHP = heroHP;}
-    public void setHeroMaxHP(int heroMaxHP) {this.heroMaxHP = heroMaxHP;}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,13 +55,14 @@ public class gameScreen extends AppCompatActivity implements View.OnClickListene
 
         //Default Setters
         mon = new Monster_Slime();
+        magic = new Magic_SlimeBall();
         monImg.setImageResource(R.drawable.monster_slime);
-        txtHeroName.setText(heroName);
-        txtHeroHP.setText(String.valueOf(heroHP));
+        txtHeroName.setText(hero.getHeroName());
+        txtHeroHP.setText(String.valueOf(hero.getHeroHP()));
         txtTurn.setText("Turn " + String.valueOf(battle.getTurnNumber()));
         txtMonsName.setText(mon.getMonsterName());
         txtMonsHP.setText(String.valueOf(mon.getMonHPts()));
-        txtHeroDmg.setText(String.valueOf(heroMinDmg) + "-" + String.valueOf(heroMaxDmg));
+        txtHeroDmg.setText(String.valueOf(hero.getHeroMinDmg()) + "-" + String.valueOf(hero.getHeroMaxDmg()));
         txtMonsDmg.setText(String.valueOf(mon.getMonMinDmg()) + "-" + String.valueOf(mon.getMonMaxDmg()));
         btnNextTurn.setVisibility(View.GONE);
         txtLog.setText("Hero's turn!");
@@ -94,11 +82,11 @@ public class gameScreen extends AppCompatActivity implements View.OnClickListene
     public void onClick (View view){
         switch (view.getId()){
             case R.id.skill1:
-                battle.heroSkill1(heroMaxDmg, heroMinDmg, heroName, txtMonsHP, btnNextTurn, txtLog);
+                battleBehavior.heroSkill1(hero.getHeroMaxDmg(), hero.getHeroMinDmg(), hero.getHeroName(), txtMonsHP, btnNextTurn, txtLog, battle.turnAdvance);
                 break;
                 //Allows the button to call the method from "battle class" when clicked
             case R.id.skill2:
-                battle.heroSkill2(heroName, btnNextTurn, txtLog);
+                battleBehavior.heroSkill2(hero.getHeroName(), btnNextTurn, txtLog);
                 break;
         }
     }

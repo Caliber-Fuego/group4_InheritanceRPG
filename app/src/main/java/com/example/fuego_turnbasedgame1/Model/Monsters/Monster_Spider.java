@@ -1,12 +1,8 @@
-package com.example.fuego_turnbasedgame1.Monsters;
+package com.example.fuego_turnbasedgame1.Model.Monsters;
 
-import android.widget.TextView;
-
-import com.example.fuego_turnbasedgame1.MonsterStatus;
-import com.example.fuego_turnbasedgame1.battle;
+import com.example.fuego_turnbasedgame1.Model.MonsterStatus;
+import com.example.fuego_turnbasedgame1.Controller.battle;
 import com.example.fuego_turnbasedgame1.gameScreen;
-
-import java.util.Random;
 
 public class Monster_Spider extends MonsterStatus {
     gameScreen gs = new gameScreen();

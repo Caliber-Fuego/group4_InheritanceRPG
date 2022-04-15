@@ -1,6 +1,6 @@
-package com.example.fuego_turnbasedgame1.Monsters;
+package com.example.fuego_turnbasedgame1.Model.Monsters;
 
-import com.example.fuego_turnbasedgame1.MonsterStatus;
+import com.example.fuego_turnbasedgame1.Model.MonsterStatus;
 
 public class Monster_Slime extends MonsterStatus {
     public Monster_Slime(){
